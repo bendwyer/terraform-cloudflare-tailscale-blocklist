@@ -1,0 +1,23 @@
+{
+  "acls": [
+    {
+      "action": "accept",
+      "src": [
+        "autogroup:member"
+      ],
+      "dst": [
+        "autogroup:internet:*"
+      ]
+    }
+  ],
+  "tagOwners": {
+    "tag:${tailscale_exit_node_tag_name}": [
+      "autogroup:admin"
+    ]
+  },
+  "autoApprovers": {
+    "exitNode": [
+      "tag:${tailscale_exit_node_tag_name}"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+---
+name-template: "$RESOLVED_VERSION"
+tag-template: "$RESOLVED_VERSION"
+change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
+categories:
+  - title: Major Changes
+    labels:
+      - major #c6476b
+      - breaking
+  - title: Minor Changes
+    labels:
+      - minor
+      - feature #006b75
+      - enhancement #ededed
+      - deprecated
+  - title: Bugfixes
+    labels:
+      - bug #fbca04
+      - dependencies #0366d6
+      - patch
+exclude-labels:
+  - skip-changelog
+version-resolver:
+  default: patch
+  major:
+    labels:
+      - major
+      - breaking
+  minor:
+    labels:
+      - minor
+      - feature
+      - enhancement
+      - deprecated
+  patch:
+    labels:
+      - bug
+      - dependencies
+      - patch
+autolabeler:
+  - label: major
+    title:
+      - "/^major/i"
+  - label: breaking
+    title:
+      - "/^breaking/i"
+  - label: minor
+    title:
+      - "/^minor/i"
+  - label: feature
+    title:
+      - "/^(feat|feature)/i"
+  - label: enhancement
+    title:
+      - "/^enhancement/i"
+  - label: deprecated
+    title:
+      - "/^deprecat(ed|ion)/i"
+  - label: bug
+    title:
+      - "/^fix/i"
+  - label: patch
+    title:
+      - "/^patch/i"
+  - label: skip-changelog
+    title:
+      - "/^(chore|ci|docs|style|test)/i"
+template: |
+  $CHANGES

@@ -1,0 +1,15 @@
+---
+name: push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    uses: bendwyer/github-workflows/.github/workflows/github-prepare-release.yml@main
+    with:
+      gh_app_id: ${{ vars.GH_APP_ID }}
+    secrets:
+      gh_app_private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}  

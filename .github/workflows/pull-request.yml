@@ -1,0 +1,40 @@
+---
+name: pull-request
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  label:
+    uses: bendwyer/github-workflows/.github/workflows/github-label.yml@main
+    with:
+      gh_app_id: ${{ vars.GH_APP_ID }}
+    secrets:
+      gh_app_private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+  lint:
+    uses: bendwyer/github-workflows/.github/workflows/terraform-lint.yml@main
+    with:
+      gh_app_id: ${{ vars.GH_APP_ID }}
+    secrets:
+      gh_app_private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+  docs:
+    uses: bendwyer/github-workflows/.github/workflows/terraform-docs.yml@main
+    with:
+      gh_app_id: ${{ vars.GH_APP_ID }}
+    secrets:
+      gh_app_private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+  check:
+    if: always()
+    needs:
+      - label
+      - lint
+      - docs
+    uses: bendwyer/github-workflows/.github/workflows/github-check.yml@main
+    with:
+      jobs: ${{ toJSON(needs) }}

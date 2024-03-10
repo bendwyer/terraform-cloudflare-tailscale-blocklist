@@ -1,0 +1,50 @@
+---
+content: |-
+  {{ .Header }}
+
+  ## Usage
+
+  ### Single IP
+
+  ```hcl
+  {{ include "examples/single-ip/main.tf" }}
+  ```
+
+  ### Multiple IPs
+
+  ```hcl
+  {{ include "examples/multiple-ips/main.tf" }}
+  ```
+
+  ### Tailscale exit nodes
+
+  ```hcl
+  {{ include "examples/tailscale-exit-nodes/main.tf" }}
+  ```
+
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Modules }}
+
+  {{ .Resources }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
+  {{ .Footer }}
+formatter: "markdown table"
+header-from: main.tf
+output:
+  file: README.md
+  mode: replace
+  template: |-
+    {{ .Content }}
+    {{- printf "\n" -}}
+settings:
+  hide-empty: true
+sort:
+  enabled: true
+  by: required

@@ -7,9 +7,9 @@ Terraform module for deploying a Cloudflare blocklist on Tailscale exit nodes.
 
 ## References
 
-https://blog.marcolancini.it/2022/blog-serverless-ad-blocking-with-cloudflare-gateway/
-https://community.cloudflare.com/t/adding-multiple-lists-to-cloudflare-zerotrust-dns-policy/497393/3
-https://icloudgo.net/posts/block-ads-with-cloudflare-zero-trust/
+- https://blog.marcolancini.it/2022/blog-serverless-ad-blocking-with-cloudflare-gateway/
+- https://community.cloudflare.com/t/adding-multiple-lists-to-cloudflare-zerotrust-dns-policy/497393/3
+- https://icloudgo.net/posts/block-ads-with-cloudflare-zero-trust/
 
 ## Usage
 

@@ -2,6 +2,12 @@
 
 Terraform module for deploying a Cloudflare blocklist on Tailscale exit nodes.
 
+## Inspiration
+
+https://blog.marcolancini.it/2022/blog-serverless-ad-blocking-with-cloudflare-gateway/
+https://community.cloudflare.com/t/adding-multiple-lists-to-cloudflare-zerotrust-dns-policy/497393/3
+https://icloudgo.net/posts/block-ads-with-cloudflare-zero-trust/
+
 > [!WARNING]\
 > Cloudflare Zero Trust (CZT) expects a default location to exist at all times. First, manually create an empty CZT default location before working with this module.
 

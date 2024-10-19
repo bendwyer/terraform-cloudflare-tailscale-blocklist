@@ -5,6 +5,12 @@ Terraform module for deploying a Cloudflare blocklist on Tailscale exit nodes.
 > [!WARNING]\
 > Cloudflare Zero Trust (CZT) expects a default location to exist at all times. First, manually create an empty CZT default location before working with this module.
 
+## References
+
+https://blog.marcolancini.it/2022/blog-serverless-ad-blocking-with-cloudflare-gateway/
+https://community.cloudflare.com/t/adding-multiple-lists-to-cloudflare-zerotrust-dns-policy/497393/3
+https://icloudgo.net/posts/block-ads-with-cloudflare-zero-trust/
+
 ## Usage
 
 ### Single IP
@@ -207,7 +213,7 @@ module "blocklist" {
 |------|-------------|------|---------|:--------:|
 | <a name="input_cloudflare_account_id"></a> [cloudflare\_account\_id](#input\_cloudflare\_account\_id) | Cloudflare account ID. | `string` | n/a | yes |
 | <a name="input_public_ip_address"></a> [public\_ip\_address](#input\_public\_ip\_address) | A set of public IP address(es) where Cloudflare Gateway will be enabled. | `set(string)` | n/a | yes |
-| <a name="input_cloudflare_dns_resolvers_ipv4"></a> [cloudflare\_dns\_resolvers\_ipv4](#input\_cloudflare\_dns\_resolvers\_ipv4) | For queries over IPv4, the default DNS resolver IP addresses are anycast IP addresses, and they are shared across every Cloudflare Zero Trust account. See https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/agentless/dns/locations/dns-resolver-ips/#ipv4-address for more information. | `list(string)` | <pre>[<br>  "172.64.36.1",<br>  "172.64.36.2"<br>]</pre> | no |
+| <a name="input_cloudflare_dns_resolvers_ipv4"></a> [cloudflare\_dns\_resolvers\_ipv4](#input\_cloudflare\_dns\_resolvers\_ipv4) | For queries over IPv4, the default DNS resolver IP addresses are anycast IP addresses, and they are shared across every Cloudflare Zero Trust account. See https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/agentless/dns/locations/dns-resolver-ips/#ipv4-address for more information. | `list(string)` | <pre>[<br/>  "172.64.36.1",<br/>  "172.64.36.2"<br/>]</pre> | no |
 
 
 
